@@ -1,3 +1,4 @@
+import defaultLayoutSettings from "@/layout/layoutSettings";
 import { getCache } from "@/utils/cache";
 import {
   type Dispatch,
@@ -14,6 +15,8 @@ const reducer = (state: State, action: Action) => {
       return { ...state, ...action.payload };
     case "theme":
       return { ...state, ...action.payload };
+    case "layout":
+      return { ...state, ...action.payload };
     default:
       throw new Error(`Unknown action type: ${(action as Action).type}`);
   }
@@ -22,6 +25,9 @@ const reducer = (state: State, action: Action) => {
 const initialState: State = {
   isMobile: window.innerWidth < 768, // 初始化 isMobile 状态
   isDark: getCache("theme") === "dark", // 从 localStorage 读取主题状态
+  layoutSettings: {
+    ...defaultLayoutSettings,
+  },
 };
 
 interface AppContext {

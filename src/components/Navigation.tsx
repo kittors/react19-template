@@ -32,7 +32,6 @@ function Navigation() {
     items: menuItems,
     selectedKeys: [location.pathname],
   };
-  console.log(isMobile);
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full dark:bg-[#1B1B1F]/90 backdrop-blur-sm border-b border-[#E2E2E3] dark:border-[#000000] shadow-sm dark:shadow-[0_1px_0_0_rgba(255,255,255,0.1)]">
       <div className="mx-auto flex h-16 max-w-[1920px] items-center justify-between px-4">
