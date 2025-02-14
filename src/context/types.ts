@@ -1,4 +1,4 @@
-import type { ThemeAction, ThemeState } from "@/theme/useTheme";
+import type { ThemeAction, ThemeState } from "@/theme/types";
 type BaseState = {
   /** 是否移动设备 */
   isMobile: boolean;
