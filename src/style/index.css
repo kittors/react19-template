@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 重置基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overscroll-behavior: none;
+  /* 禁止滚动条 解决Mac滚动条横向导致页面切换 */
+}
+
+/* 根样式设置 */
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #f0f0f0;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root.dark {
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #141414;
+}
+
+/* 修复常见问题 */
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 媒体查询 */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #333333;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #1677ff;
+    /* Ant Design 的主色调 */
+  }
+}
+
+/* 适配移动端 */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* 防止页面溢出 */
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* View Transitions API 动画 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483646;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 2147483646;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* 暗色主题下的样式 */
+.dark body {
+  background-color: #141414;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.dark .ant-menu {
+  background-color: #141414;
+  color: rgba(255, 255, 255, 0.87);
+}

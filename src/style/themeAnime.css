@@ -1,0 +1,33 @@
+/* View Transitions API 动画 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483646;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 2147483646;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* 暗色主题下的样式 */
+.dark body {
+  background-color: #141414;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.dark .ant-menu {
+  background-color: #141414;
+  color: rgba(255, 255, 255, 0.87);
+}
